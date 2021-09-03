@@ -20,29 +20,37 @@
                     <i data-feather="x"></i>
                 </a>
                 <label for="title">Titulo</label>
-                <input
-                type="text" 
-                name="title" 
-                placeholder="Descrição do lançamento"
-                />
+                <input type="text" name="title" placeholder="Descrição do lançamento" />
                 <div>
-                <label for="price">Preço</label>
-                <input type="text" name="price" placeholder="Valor em reais (R$)">
-                    
-                    <label for="category">Categoria</label>
-                    <select> name="category" id="category"/>
-                    <option value=""></option>
-                    <option value="entrada">Entrada</option>
-                    <option value="saida">Saída</option>
-                </select>
+                    <label for="price">Preço</label>
+                    <input type="number"
+                    min="0"
+                    step="0.01"
+                     name="price" 
+                     placeholder="Valor em reais (R$)">
+
+                    <label for="currency">Moeda</label>
+                    <select name="currency" id="currency">
+                        <option value="BRL" style="display:none" selected></option>
+                        <option value="BRL">R$</option>
+                        <option value="USD">US$</option>
+                    </select>
                 </div>
-                <label for="identifier">Rótulos</label>
-                <input
-                type="text"
-                name="identifier"
-                placeholder="Descrição de categoria"
-                />
-                <button>Cadastrar</button>
+
+                <div>
+                    <label for="category">Categoria</label>
+                    <select name="category" id="category">
+                        
+                        <option value="saida" style="display:none" selected>
+                        </option>
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saída</option>
+                    </select>
+                    <label for="identifier">Rótulos</label>
+                    <input type="text" name="identifier" placeholder="Descrição de categoria" />
+                </div>
+
+                <button type="submit">Cadastrar</button>
             </form>
         </div>
     </div>
@@ -95,8 +103,8 @@
             </thead>
             <!-- tabela tr td -->
             <tbody>
-            <!--essa parte vai ser carregada dinamicamente pelo javascript-->
-            
+                <!--essa parte vai ser carregada dinamicamente pelo javascript-->
+
             </tbody>
         </table>
     </div>
