@@ -1,9 +1,19 @@
+var icons = {
+  "alimentação": "coffee",
+  "Venda": "dolar-sign",
+  "Saúde": "heart",
+  "Transporte": "map-pin",
+  "Educação": "book",
+  "Fatura": "credit-card",
+  "investimento": "pie-chart"
+};
 var transactions =
   JSON.parse(localStorage.getItem("@ewallet/transactions")) || [];
 
 var table = document.querySelector("#table tbody");
 
 transactions.map((transaction) => {
+  
   var row = document.createElement("tr");
 
   var title = document.createElement("td");
@@ -14,20 +24,23 @@ transactions.map((transaction) => {
   price.append(value);
 
   var category = document.createElement("td");
-  category.append(transaction.category);
+  category.classList.add(`${transaction.category==="entrada"?"green":"red"}`)
+
+  var icon = document.createElement("i"); 
+  icon.setAttribute("data-feather", icons[transaction.identifier])
+  category.appendChild(icon)
+  category.append(transaction.identifier);
 
   var date = document.createElement("td");
   date.append(transaction.date);
-
+  
   row.appendChild(title);
   row.appendChild(price);
   row.appendChild(category);
   row.appendChild(date);
 
   table.appendChild(row);
-
-  var price = document.createElement("td");
-  price.append(transaction.price);
+  feather.replace()
 });
 
 var addBtn = document.querySelector("#addButton a");

@@ -154,7 +154,7 @@ thead th{
     font-weight: 300;
     padding-left: 10px;
 }
-
+ 
 tbody td{
     border-bottom: 0px solid transparent;
     background-color: #fff;
@@ -168,10 +168,12 @@ tbody tr td{
 .green{
     color: #12a454;
     font-weight: 400;
+    text-transform: capitalize;
 }
 .red{
     color: red;
     font-weight: 400;
+    text-transform: capitalize;
 }
 #addButton a{
     color: #fff;
