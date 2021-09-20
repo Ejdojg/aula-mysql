@@ -196,3 +196,9 @@ tbody tr td{
 #addButtom:hover{
     background-color: #0c6434;
 }
+.delete{
+    background: none;
+}
+.delete:hover{
+    color: #e83f5b;
+}

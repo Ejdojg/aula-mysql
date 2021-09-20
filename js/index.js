@@ -1,3 +1,4 @@
+ 
 var icons = {
   "alimentação": "coffee",
   "Venda": "dolar-sign",
@@ -30,10 +31,22 @@ transactions.map((transaction) => {
   icon.setAttribute("data-feather", icons[transaction.identifier])
   category.appendChild(icon)
   category.append(transaction.identifier);
-
+  
   var date = document.createElement("td");
   date.append(transaction.date);
   
+  transactions.map((product) => {
+    const hidden = document.createElement("td");
+    const btn = document.createElement("button");
+    btn.classList.add("delete");
+    btn.setAttribute("onclick",`deleteTransaction(${product.id})`)
+    const btnTrash = document.createElement("i");
+    btnTrash.setAttribute("data-feather", "trash-2")
+    btn.appendChild(btnTrash)
+    hidden.appendChild(btn)
+  }
+  )
+  row.appendChild(hidden);
   row.appendChild(title);
   row.appendChild(price);
   row.appendChild(category);
@@ -110,4 +123,19 @@ function moneyFormat(currency, price) {
     currency: currency,
   }).format(price);
   return value;
+}
+if (category.value)
+identifier.innerHTML = "";
+
+options[category.value].map((option) => {
+  var item = document.createElement("option");
+  item.setAttribute("value", option);
+  item.append(option);
+});
+  identifier.removeAttribute("disabled");
+
+function deleteTransaction(id){
+  var filtered = transactions.filter(transaction => transaction.id != id)
+  localStorage.setItem("@ewallet/transactions", JSON.stringify(filtered));
+  window.location.reload();
 }
